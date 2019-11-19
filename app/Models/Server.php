@@ -35,7 +35,7 @@ class Server extends Model implements CleansAttributes, ValidableContract
      * @var array
      */
     protected $attributes = [
-        'oom_disabled' => true,
+        'oom_disabled' => false,
     ];
 
     /**
