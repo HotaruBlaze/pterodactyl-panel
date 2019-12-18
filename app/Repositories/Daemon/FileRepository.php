@@ -82,7 +82,8 @@ class FileRepository extends BaseRepository implements FileRepositoryInterface
      */
     public function getDirectory(string $path): array
     {
-        $response = $this->getHttpClient()->request('GET', sprintf('server/directory/%s', rawurlencode($path)));
+        $options['timeout'] = 1000;
+        $response = $this->getHttpClient()->request('GET', sprintf('server/directory/%s', rawurlencode($path), $options));
 
         $contents = json_decode($response->getBody());
         $files = $folders = [];
